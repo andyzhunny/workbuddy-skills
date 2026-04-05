@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>汉语新解 · 婚姻</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #0d0f12;
+    --card-bg: #151820;
+    --surface: #1c1f28;
+    --accent: #e8a44a;
+    --accent2: #c46b3a;
+    --text: #e4dfd6;
+    --text-dim: #8a867e;
+    --border: #2a2d38;
+    --highlight: #f0c96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif SC', 'Georgia', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    width: 1080px;
+    padding: 0 0 80px 0;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    padding: 80px 80px 60px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -40px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(232,164,74,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-word {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 140px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .hero-phonetic {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+
+  .hero-cn {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 12px;
+    margin-bottom: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  /* ── Section ── */
+  .section {
+    padding: 48px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 28px;
+    line-height: 1.4;
+  }
+
+  /* ── Quote ── */
+  .quote-block {
+    padding: 40px;
+    margin: 0 80px;
+    background: var(--surface);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .quote-text {
+    font-size: 22px;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .quote-source {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 16px;
+  }
+
+  /* ── Essays ── */
+  .essays {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .essay-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+
+  .essay-item em {
+    color: var(--highlight);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .essay-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  /* ── Contrast ── */
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .contrast-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 28px;
+  }
+
+  .contrast-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .contrast-body {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 40px 80px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .footer-date {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ── Decorative Divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 80px;
+    gap: 16px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .divider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-word">婚姻</div>
+    <div class="hero-phonetic">/hūn yīn/</div>
+    <div class="hero-cn">婚姻 · Marriage · 婚姻（こんいん）</div>
+    <div class="hero-subtitle">
+      两个家族的资源整合协议，顺便加上点爱情的名义。
+    </div>
+  </div>
+
+  <!-- Essays -->
+  <div class="section">
+    <div class="section-label">解读</div>
+    <div class="essays">
+      <div class="essay-item">
+        <div class="essay-text">
+          <em>婚姻</em>是爱情的<em>坟墓</em>——这句话被说了几百年，但每年还是有两千万人争着往里跳。
+        </div>
+      </div>
+      <div class="essay-item">
+        <div class="essay-text">
+          丈母娘要房子，婆婆要孙子，老板要你加班还贷。婚姻从来不是两个人的事，是<em>两个家族的合资公司</em>。
+        </div>
+      </div>
+      <div class="essay-item">
+        <div class="essay-text">
+          婚礼有多盛大，婚后的账本就有多惨淡。<em>仪式感</em>是对冲动最好的催眠。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <!-- Contrast -->
+  <div class="section">
+    <div class="section-label">Marriage</div>
+    <div class="section-title">围城内外</div>
+    <div class="contrast-grid">
+      <div class="contrast-card">
+        <div class="contrast-title">城外的人想进去</div>
+        <div class="contrast-body">以为找到了避风港，结果发现港里也在刮风。以为是终点，其实是起点。</div>
+      </div>
+      <div class="contrast-card">
+        <div class="contrast-title">城里的人想出来</div>
+        <div class="contrast-body">孩子、房子、面子——三座大山。想裸辞？先问问双方父母同不同意。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="section" style="padding-left: 0; padding-right: 0;">
+    <div class="quote-block">
+      <div class="quote-text">
+        "婚姻是爱情的坟墓——但如果不结婚，爱情就连葬身之地都没有了。"
+      </div>
+      <div class="quote-source">—— 民间智慧</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-brand">LJG · 汉语新解</span>
+    <span class="footer-date">2026.04.01</span>
+  </div>
+
+</div>
+</body>
+</html>

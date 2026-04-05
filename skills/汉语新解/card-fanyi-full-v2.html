@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>汉语新解 · 翻译</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #0d0f12;
+    --card-bg: #151820;
+    --surface: #1c1f28;
+    --accent: #e8a44a;
+    --text: #e4dfd6;
+    --text-dim: #8a867e;
+    --border: #2a2d38;
+    --highlight: #f0c96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; background: var(--bg); color: var(--text); font-family: 'Noto Serif SC', serif; -webkit-font-smoothing: antialiased; }
+
+  .container { width: 1080px; padding: 0 0 80px 0; }
+
+  .hero { position: relative; padding: 70px 80px 50px; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -40px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(232,164,74,0.12) 0%, transparent 70%); pointer-events: none; }
+  .hero-word { font-family: 'Space Grotesk', sans-serif; font-size: 130px; font-weight: 700; color: var(--accent); letter-spacing: -4px; line-height: 1; margin-bottom: 10px; }
+  .hero-phonetic { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 300; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 24px; }
+  .hero-cn { font-size: 36px; font-weight: 700; color: var(--text); letter-spacing: 10px; margin-bottom: 20px; }
+  .hero-subtitle { font-size: 20px; color: var(--text-dim); line-height: 1.8; max-width: 700px; }
+
+  .section { padding: 44px 80px; border-top: 1px solid var(--border); }
+  .section-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+  .section-title { font-size: 28px; font-weight: 700; color: var(--text); margin-bottom: 24px; line-height: 1.4; }
+
+  .essays { display: flex; flex-direction: column; gap: 20px; }
+  .essay-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 28px; }
+  .essay-item em { color: var(--highlight); font-style: normal; font-weight: 700; }
+  .essay-text { font-size: 19px; line-height: 1.8; color: var(--text); }
+
+  .quote-block { padding: 36px 40px; margin: 0 80px; background: var(--surface); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; }
+  .quote-text { font-size: 21px; line-height: 1.8; color: var(--text); font-style: italic; }
+  .quote-source { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: var(--text-dim); margin-top: 14px; }
+
+  .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .contrast-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; }
+  .contrast-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500; color: var(--accent); letter-spacing: 2px; margin-bottom: 12px; }
+  .contrast-body { font-size: 17px; line-height: 1.7; color: var(--text); }
+
+  .divider { display: flex; align-items: center; justify-content: center; padding: 20px 80px; gap: 16px; }
+  .divider-line { flex: 1; height: 1px; background: var(--border); }
+  .divider-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0.5; }
+
+  .footer { padding: 36px 80px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .footer-brand { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: var(--text-dim); letter-spacing: 1px; }
+  .footer-date { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--text-dim); }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-word">翻译</div>
+    <div class="hero-phonetic">/fān yì/</div>
+    <div class="hero-cn">翻译 · Translation · 翻訳</div>
+    <div class="hero-subtitle">
+      戴着镣铐跳舞，还要假装是原版的灵魂。
+    </div>
+  </div>
+
+  <!-- Essays -->
+  <div class="section">
+    <div class="section-label">解读</div>
+    <div class="essays">
+      <div class="essay-item">
+        <div class="essay-text">
+          好的翻译是<em>背叛</em>，差的翻译是<em>辜负</em>。而大多数翻译，两样都占了。
+        </div>
+      </div>
+      <div class="essay-item">
+        <div class="essay-text">
+          傅雷译巴尔扎克，许渊冲译诗——那是<em>再创造</em>。你公司发的中英双语邮件，那叫<em>互相欺骗</em>。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-dot"></div><div class="divider-line"></div></div>
+
+  <!-- Quote -->
+  <div class="section" style="padding-left: 0; padding-right: 0;">
+    <div class="quote-block">
+      <div class="quote-text">
+        "Translation is the art of failure." — Umberto Eco
+      </div>
+      <div class="quote-source">翻译是失败的艺术。—— 翁贝托·埃科</div>
+    </div>
+  </div>
+
+  <!-- Contrast -->
+  <div class="section">
+    <div class="section-label">Translation</div>
+    <div class="section-title">好与差</div>
+    <div class="contrast-grid">
+      <div class="contrast-card">
+        <div class="contrast-title">好的翻译</div>
+        <div class="contrast-body">是再创造。傅雷译巴尔扎克，许渊冲译诗——在两种语言之间，找到那个恰好等价的位置。</div>
+      </div>
+      <div class="contrast-card">
+        <div class="contrast-title">差的翻译</div>
+        <div class="contrast-body">把原作者的意思打折出售，再贴上「信达雅」的标签。戴着镣铐跳舞，还要假装是原版的灵魂。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-brand">LJG · 汉语新解</span>
+    <span class="footer-date">2026.04.01</span>
+  </div>
+
+</div>
+</body>
+</html>

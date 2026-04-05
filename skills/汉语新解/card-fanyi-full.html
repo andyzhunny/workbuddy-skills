@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>汉语新解 · 翻译</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+  :root {
+    --bg: #0d0f12;
+    --card-bg: #111318;
+    --surface: #1a1d25;
+    --accent: #4a9eff;
+    --accent-warm: #e8a44a;
+    --text: #e4dfd6;
+    --text-dim: #7a7770;
+    --border: #2a2d38;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif SC', 'Georgia', serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 1080px;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 60px 0;
+  }
+
+  /* ── Header ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 36px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .header-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .header-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+  }
+
+  .header-right {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+    opacity: 0.5;
+  }
+
+  /* ── Hero Word ── */
+  .hero {
+    padding: 70px 60px 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+    right: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent 50%);
+    opacity: 0.3;
+  }
+
+  .word-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .big-word {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 160px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 0.9;
+    letter-spacing: -4px;
+  }
+
+  .pinyin {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-dim);
+    letter-spacing: 6px;
+  }
+
+  .lang-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lang-code {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+  }
+
+  .lang-word {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-dim);
+  }
+
+  /* ── Core Quote ── */
+  .core-section {
+    padding: 50px 60px 40px;
+  }
+
+  .core-quote {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.5;
+    letter-spacing: 3px;
+    max-width: 800px;
+    position: relative;
+    padding-left: 30px;
+    border-left: 4px solid var(--accent);
+  }
+
+  /* ── Divider ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 60px;
+    margin: 10px 0;
+  }
+
+  .div-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .div-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  /* ── Essays ── */
+  .essays {
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .essay {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .essay-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(74, 158, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    min-width: 50px;
+    text-align: center;
+  }
+
+  .essay-text {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text);
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .essay-text em {
+    color: var(--accent-warm);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ── Contrast Block ── */
+  .contrast {
+    margin: 20px 60px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .contrast-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contrast-item {
+    padding: 28px 32px;
+  }
+
+  .contrast-item:first-child {
+    border-right: 1px solid var(--border);
+  }
+
+  .contrast-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .contrast-item:first-child .contrast-label {
+    color: var(--accent);
+  }
+
+  .contrast-item:last-child .contrast-label {
+    color: var(--text-dim);
+  }
+
+  .contrast-desc {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .contrast-item:first-child .contrast-desc {
+    color: var(--accent-warm);
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 40px 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .footer-date {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--text-dim);
+    opacity: 0.5;
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-title">汉语新解</div>
+      <div class="header-sub">一词一世界</div>
+    </div>
+    <div class="header-right">2026 · 汉语新解系列</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="word-block">
+      <div class="big-word">翻译</div>
+      <div class="pinyin">fān yì</div>
+    </div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <span class="lang-code">EN</span>
+        <span class="lang-word">Translation</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-code">JP</span>
+        <span class="lang-word">翻訳（ほんやく）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Quote -->
+  <div class="core-section">
+    <div class="core-quote">
+      戴着镣铐跳舞，还要假装是原版的灵魂。
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="div-line"></div>
+    <div class="div-dot"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <!-- Essays -->
+  <div class="essays">
+
+    <div class="essay">
+      <span class="essay-num">01</span>
+      <div class="essay-text">
+        好的翻译是<em>背叛</em>，差的翻译是<em>辜负</em>。而大多数翻译，两样都占了。
+      </div>
+    </div>
+
+    <div class="essay">
+      <span class="essay-num">02</span>
+      <div class="essay-text">
+        傅雷译巴尔扎克，许渊冲译诗——那是<em>再创造</em>。你公司发的中英双语邮件，那叫<em>互相欺骗</em>。
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Contrast -->
+  <div class="contrast">
+    <div class="contrast-row">
+      <div class="contrast-item">
+        <div class="contrast-label">好的翻译</div>
+        <div class="contrast-desc">戴着镣铐跳舞，还要假装是原版的灵魂。</div>
+      </div>
+      <div class="contrast-item">
+        <div class="contrast-label">差的翻译</div>
+        <div class="contrast-desc">把原作者的意思打折出售，再贴上「信达雅」的标签。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span class="footer-brand">汉语新解</span>
+    <span class="footer-date">LJG · 2026.04.01</span>
+  </div>
+
+</div>
+</body>
+</html>
