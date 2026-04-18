@@ -1,0 +1,17 @@
+{
+  "name": "vgms-cli",
+  "version": "1.0.0",
+  "description": "维普毕业论文管理系统 CLI 工具",
+  "main": "vgms.js",
+  "bin": {
+    "vgms": "vgms.js"
+  },
+  "scripts": {
+    "start": "node vgms.js"
+  },
+  "keywords": ["vgms", "thesis", "education", "cli"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
