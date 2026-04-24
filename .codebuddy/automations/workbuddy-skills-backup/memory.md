@@ -1,13 +1,14 @@
 # Backup Execution Memory
 
+## 2026-04-24 08:59
+- **Status**: Success
+- **Commit**: 6ec5cce..8a39ede
+- **Note**: 2 files changed (6 insertions, 1 deletion)，skills 目录同步备份成功。注意：脚本需通过 `-GitHubToken` 参数传入 token，PowerShell 变量赋值语法与 bash 不同。
+
 ## 2026-04-21 08:59
 - **Status**: Success
 - **Commit**: ffac368..6ec5cce
 - **Note**: 1 file changed (4 insertions), automation memory.md 有更新，备份成功推送到 GitHub。
-
-## 2026-04-21 08:57
-- **Status**: Success (No changes)
-- **Note**: backup.ps1 执行成功，skills 目录与仓库内容一致，无变更，跳过提交。脚本需通过 -GitHubToken 参数传入 token（GITHUB_TOKEN 环境变量未设置时直接 exit 1）。
 
 ## 2026-04-19 09:00
 - **Status**: Success
