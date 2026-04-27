@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: "PingFang SC", "Heiti SC", "STHeiti", -apple-system, sans-serif;
+            background-color: #F7F3E9;
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 5vw;
+        }
+        
+        .slide.active {
+            display: flex;
+        }
+        
+        .slide-content {
+            font-size: clamp(3rem, 15vw, 12rem);
+            font-weight: 700;
+            color: #1A1A1A;
+            text-align: center;
+            line-height: 1.1;
+            word-break: break-word;
+            max-width: 90vw;
+        }
+        
+        .slide-content.emphasis {
+            color: #C03C28;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 2vh;
+            left: 2vw;
+            font-size: 0.875rem;
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .instructions {
+            position: fixed;
+            bottom: 2vh;
+            right: 2vw;
+            font-size: 0.75rem;
+            color: #bbb;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="slides-container"></div>
+    <div class="instructions">→ ← 翻页 | f 全屏</div>
+    
+    <script>
+        const slidesData = {{SLIDES_JSON}};
+        const container = document.getElementById('slides-container');
+        let currentSlide = 0;
+        
+        // Generate slides
+        slidesData.forEach((slide, index) => {
+            const slideDiv = document.createElement('div');
+            slideDiv.className = 'slide' + (index === 0 ? ' active' : '');
+            
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'slide-content' + (slide.emphasis ? ' emphasis' : '');
+            contentDiv.textContent = slide.text;
+            
+            const pageNum = document.createElement('div');
+            pageNum.className = 'page-number';
+            pageNum.textContent = `${index + 1} / ${slidesData.length}`;
+            
+            slideDiv.appendChild(contentDiv);
+            slideDiv.appendChild(pageNum);
+            container.appendChild(slideDiv);
+        });
+        
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+        
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                case 'PageDown':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'PageUp':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    currentSlide = 0;
+                    showSlide(currentSlide);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    currentSlide = slides.length - 1;
+                    showSlide(currentSlide);
+                    break;
+                case 'f':
+                case 'F':
+                    if (!document.fullscreenElement) {
+                        document.documentElement.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                    break;
+            }
+        });
+        
+        // Click navigation
+        document.addEventListener('click', (e) => {
+            const x = e.clientX / window.innerWidth;
+            if (x > 0.5) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        });
+    </script>
+</body>
+</html>
